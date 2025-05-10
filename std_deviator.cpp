@@ -1,12 +1,13 @@
-#include "project.h"
+//#include "project.h"
 #include <iostream>
 #include <vector>
+#include <utility>
 #include <cmath>
 
-int y_dim = 10; //y,x-dimensions of eta-phi array
-int x_dim = 10;
+const int y_dim = 10; //y,x-dimensions of eta-phi array
+const int x_dim = 10;
 
-void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_dim][y_dim], int coordinates[2][]) {
+void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_dim][y_dim], std::vector<std::pair<int, int>>& coordinates) {
 	// array		input eta-phi array of energy values
 	// z			input standard deviation threashold for energy deposit significance
 	// filtered_array	output version of array with all insignificant energies set to zero
@@ -40,7 +41,7 @@ void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_
 			z_score = (array[x][y] - mean) / stddev;
 			if(z_score > z){
 				filtered_array[x][y] = array[x][y];
-				coordinates.push_back({x, y});
+				coordinates.emplace_back(x, y);
 			} else {
 				filtered_array[x][y] = 0;
 			}//z_score
@@ -48,7 +49,5 @@ void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_
 	}//x loop
 	
 	std::cout << "Standard deviator finished." << std::endl;
-
-	return 0;
 
 }//std_deviator
