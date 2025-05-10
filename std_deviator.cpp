@@ -36,6 +36,7 @@ void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_
 //use mean,stddev to check energy significances
 	double z_score = 0;
 
+	std::cout << "\nGrid vizualization by z-score:" << std::endl;
 	for(int x = 0; x < x_dim; x++){
         	for(int y = 0; y < y_dim; y++){
 			z_score = (array[x][y] - mean) / stddev;
@@ -45,6 +46,13 @@ void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_
 			} else {
 				filtered_array[x][y] = 0;
 			}//z_score
+			if (z_score > 2.0) {
+				std::cout << "\033[41m  \033[0m"; // red background
+			} else if (z_score > 1.0) {
+				std::cout << "\033[43m  \033[0m"; // orange/yellow background
+			} else {
+				std::cout << "\033[103m  \033[0m"; // light yellow background
+			}
 		}//y loop
 	}//x loop
 	
