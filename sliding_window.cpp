@@ -1,8 +1,5 @@
 #include "project.h"
 
-const int first_index = 10;
-const int second_index = 13;
-
 int mod_row(int i, int rows){
 	return (i + rows) % rows;
 }
