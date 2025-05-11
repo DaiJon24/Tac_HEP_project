@@ -8,6 +8,10 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 {	
 	File *oFile;
 	oFile = fopen("output.dat", "w");
+	if (!oFile){
+		cerr << "Failed to open output file."<< endl;
+		return 1;
+	}
 	for (int i = 0; i < coordinates.size(); i++){
 		int x = coordinates[i].first;
 		int y = coordinates[i].second;
