@@ -35,7 +35,8 @@ void std_deviator(double array[x_dim][y_dim], double z, std::vector<std::pair<in
 //use mean,stddev to check energy significances
 	double z_score = 0;
 
-	std::cout << "\nGrid vizualization by z-score:" << std::endl;
+	std::cout << "\nVisualize energies by z-score:" << std::endl;
+	std::cout << "     -(eta)-->" << std::endl; //label x coords
 	for(int x = 0; x < x_dim; x++){
         	for(int y = 0; y < y_dim; y++){
 			z_score = (array[x][y] - mean) / stddev;
@@ -50,11 +51,20 @@ void std_deviator(double array[x_dim][y_dim], double z, std::vector<std::pair<in
 				std::cout << "\033[103m  \033[0m"; // light yellow background
 			}//visualize significant hits to standard output
 		}//y loop
+		if(x == x_dim - 6){
+			std::cout << "  ^";
+		} else if(x == x_dim - 5||x == x_dim - 4||x == x_dim - 2){
+			std::cout << "  |";
+		} else if(x == x_dim - 3){
+			std::cout << "(phi)";
+		}//label y-coords
+		std::cout << "\n";
 	}//x loop
 	
-	//int numberOfPairs = coordinates.size();
+	int numberOfPairs = coordinates.size();
 
-	std::cout << "- - - - - - - - - - - - -\nStandard deviator finished." << std::endl;
-	//std::cout << numberOfPairs << " energy values found more than " << z << " standard deviations away from average energy value." << std::endl;
+	std::cout << "\n\nStandard deviator finished..." << std::endl;
+	std::cout << numberOfPairs << " energy values found more than " << z << " standard deviations away from average energy value." << std::endl;
+	std::cout << "Their locations are recorded in the `coodinates' vector." << std::endl;
 
 }//std_deviator
