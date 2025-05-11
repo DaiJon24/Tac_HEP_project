@@ -1,9 +1,11 @@
-//#include "project.h"
+#include "project.h"
 #include <iostream>
 #include <vector>
 #include <utility> // for std::pair
 
-extern void std_deviator(double array[10][10], double z, std::vector<std::pair<int, int>>& coordinates);
+//extern void std_deviator(double array[first_index][second_index], double z, std::vector<std::pair<int, int>>& coordinates);
+
+//extern void find_maxima(double array[10][1], std::vector<std::pair<int, int>>& coordinates);
 
 int main() {
     double input_array[10][10] = {0};
@@ -30,6 +32,8 @@ int main() {
     for (const auto& coord : significant_coords) {
         std::cout << "(" << coord.first << ", " << coord.second << ") -> Energy: " 
                   << input_array[coord.first][coord.second] << std::endl;
+
+//    find_maxima(input_array,significant_coords);
     }
 
     return 0;

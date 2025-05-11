@@ -3,6 +3,7 @@
 
 #include <utility>
 #include <vector>
+#include <iostream>
 
 #define first_index 10
 #define second_index 10
@@ -21,6 +22,6 @@ void mod_row(
 void find_maxima(
 		double array[first_index][second_index],
 		std::vector<std::pair<int, int>>& coordinates
-	)
+	);
 
 #endif
