@@ -6,11 +6,9 @@ int mod_row(int i, int rows){
 
 void find_maxima(double array[first_index][second_index], std::vector<std::pair<int, int>>& coordinates)
 {	
-	FILE *oFile;
-	oFile = fopen("output.dat", "w");
-	if (!oFile){
-		cerr << "Failed to open output file."<< endl;
-		return;
+	
+	ofstream MyFile("output.dat");
+	
 	}
 	for (int i = 0; i < coordinates.size(); i++){
 		int x = coordinates[i].first;
@@ -23,9 +21,9 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 						sum += array[mod_row(x + j - 1, first_index)][y + k - 1];
 					}
 				}
-				fprintf(oFile, %i %i %d\n, x, y, sum);
+				MyFile << x, y, sum\n);
 			}
 		}
 	}
-	fclose(oFile);
+	MyFile.close();
 }
