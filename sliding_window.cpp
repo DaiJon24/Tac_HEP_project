@@ -6,10 +6,10 @@ int mod_row(int i, int rows){
 
 void find_maxima(double array[first_index][second_index], std::vector<std::pair<int, int>>& coordinates)
 {	
-	
+
 	ofstream MyFile("output.dat");
 	
-	}
+
 	for (int i = 0; i < coordinates.size(); i++){
 		int x = coordinates[i].first;
 		int y = coordinates[i].second;

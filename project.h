@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+using namespace std;
 
 #define first_index 10
 #define second_index 10
