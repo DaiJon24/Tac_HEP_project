@@ -33,8 +33,8 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 					double sum7 = 0;
 					if (y > 2 && y < second_index - 2){
 						for (int n = 0; n < 7; n++){
-							for (int o = 0; n < 7; o++){
-								sum7 += array[mod_row(x + n - 3, first_index)][y + o - 3];
+							for (int o = 0; o < 7; o++){
+								sum7 += array[mod_row(x + o - 3, first_index)][y + o - 3];
 							}
 						}
 					}
