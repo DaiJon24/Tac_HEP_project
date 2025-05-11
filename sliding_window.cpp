@@ -21,7 +21,7 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 						sum += array[mod_row(x + j - 1, first_index)][y + k - 1];
 					}
 				}
-				MyFile << x, y, sum\n);
+				MyFile << x << ", " << y << ", " << sum << "\n";
 			}
 		}
 	}

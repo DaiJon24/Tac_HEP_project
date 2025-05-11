@@ -15,7 +15,7 @@ void std_deviator(
 		std::vector<std::pair<int, int>>& coordinates
 	);
 
-void mod_row(
+int mod_row(
 		int i,
 		int rows
 	);
