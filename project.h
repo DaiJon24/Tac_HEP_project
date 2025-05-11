@@ -4,15 +4,23 @@
 #include <utility>
 #include <vector>
 
+#define first_index 10
+#define second_index 10
+
 void std_deviator(
-	double array[][],
-	double z,
-	std::vector<std::pair<int, int>>& coordinates
+		double array[first_index][second_index],
+		double z,
+		std::vector<std::pair<int, int>>& coordinates
+	);
+
+void mod_row(
+		int i,
+		int rows
 	);
 
 void find_maxima(
-	double array[first_index][second_index],
-	std::vector<std::pair<int, int>>& coordinates
+		double array[first_index][second_index],
+		std::vector<std::pair<int, int>>& coordinates
 	)
 
 #endif
