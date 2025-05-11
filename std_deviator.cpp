@@ -7,11 +7,10 @@
 const int y_dim = 10; //y,x-dimensions of eta-phi array
 const int x_dim = 10;
 
-void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_dim][y_dim], std::vector<std::pair<int, int>>& coordinates) {
+void std_deviator(double array[x_dim][y_dim], double z, std::vector<std::pair<int, int>>& coordinates) {
 	// array		input eta-phi array of energy values
 	// z			input standard deviation threashold for energy deposit significance
-	// filtered_array	output version of array with all insignificant energies set to zero
-	// coordinates		output 2x(?) list of x,y-coordinates of significant energies
+	// coordinates		output: vector of x,y-coordinate pairs of significant energies
 
 //calcuate mean and stddev by Welford's one-pass algorithm
 	int count = 0;
@@ -41,21 +40,21 @@ void std_deviator(double array[x_dim][y_dim], double z, double filtered_array[x_
         	for(int y = 0; y < y_dim; y++){
 			z_score = (array[x][y] - mean) / stddev;
 			if(z_score > z){
-				filtered_array[x][y] = array[x][y];
 				coordinates.emplace_back(x, y);
-			} else {
-				filtered_array[x][y] = 0;
-			}//z_score
+			}//make coordinates vector
 			if (z_score > 2.0) {
 				std::cout << "\033[41m  \033[0m"; // red background
 			} else if (z_score > 1.0) {
 				std::cout << "\033[43m  \033[0m"; // orange/yellow background
 			} else {
 				std::cout << "\033[103m  \033[0m"; // light yellow background
-			}
+			}//visualize significant hits to standard output
 		}//y loop
 	}//x loop
 	
-	std::cout << "Standard deviator finished." << std::endl;
+	//int numberOfPairs = coordinates.size();
+
+	std::cout << "- - - - - - - - - - - - -\nStandard deviator finished." << std::endl;
+	//std::cout << numberOfPairs << " energy values found more than " << z << " standard deviations away from average energy value." << std::endl;
 
 }//std_deviator
