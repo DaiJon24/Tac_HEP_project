@@ -23,7 +23,7 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 						}
 					}
 					double sum5 = 0;
-					if (y > 1 && y < second_index - 1){
+					if (y > 1 && y < second_index - 2){
 						for (int l = 0; l < 5; l++){
 							for (int m = 0; m < 5; m++){
 								sum5 += array[mod_row(x + l - 2, first_index)][y + m -2];
@@ -31,7 +31,7 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 						}
 					}
 					double sum7 = 0;
-					if (y > 2 && y < second_index - 2){
+					if (y > 2 && y < second_index - 3){
 						for (int n = 0; n < 7; n++){
 							for (int o = 0; o < 7; o++){
 								sum7 += array[mod_row(x + n - 3, first_index)][y + o - 3];
