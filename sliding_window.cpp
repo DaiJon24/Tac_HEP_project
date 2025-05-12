@@ -13,7 +13,7 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 	for (int i = 0; i < coordinates.size(); i++){
 		int x = coordinates[i].first;
 		int y = coordinates[i].second;
-		if (y > 0 && y < second_index){
+		if (y > 0 && y < second_index - 1){
 			if (array[mod_row(x - 1, first_index)][y]  < array[x][y] && array[mod_row(x + 1, first_index)][y] < array[x][y]){
 				if (array[x][y - 1] < array[x][y] && array[x][y + 1] < array[x][y]){
 					double sum3 = 0;
@@ -42,6 +42,6 @@ void find_maxima(double array[first_index][second_index], std::vector<std::pair<
 				}
 			}
 		}
-		MyFile.close();
 	}
+	MyFile.close();
 }
